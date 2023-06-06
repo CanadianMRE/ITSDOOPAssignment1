@@ -14,7 +14,7 @@ public class VolumeCompare implements Comparator<Shape> {
 		{
 			return -1;
 		}
-		else // stud1.getGrade() == stud2.getGrade()
+		else
 		{
 			return 0;
 		}
