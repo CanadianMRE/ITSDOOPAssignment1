@@ -5,8 +5,8 @@ import project.shapes.Prism;
 public class SquareBase extends Prism {
 
 
-    public SquareBase(double length) {
-        super(length, length);
+    public SquareBase(double height, double length) {
+        super(height, length);
     }
 
     @Override
