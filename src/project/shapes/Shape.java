@@ -1,7 +1,7 @@
 package project.shapes;
 
 public abstract class Shape implements Comparable<Shape> {
-	private static Shape[] shapeList;
+	private static Shape[] shapeList = {};
 	protected double height;
 	
 	public Shape(double height) {
