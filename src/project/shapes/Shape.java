@@ -1,13 +1,12 @@
 package project.shapes;
 
 public abstract class Shape implements Comparable<Shape> {
-	private static Shape[] shapeList = {};
+	private static Shape[] shapeList = new Shape[99999999];
 	protected double height;
 	
 	public Shape(double height) {
 		this.height = height;
-
-		shapeList[shapeList.length] = this;
+		
 	}
 
 	public abstract double GetArea();
