@@ -58,7 +58,7 @@ public class Sorts {
 		if (shapeArray.length <= 1) {
 			return shapeArray;
 		} else {
-			Shape pivot = shapeArray[shapeArray.length / 2];
+			Shape pivot = shapeArray[0];
 			Shape[] left = {};
 			Shape[] right = {};
 			Shape[] pivots = {};

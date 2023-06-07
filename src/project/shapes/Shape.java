@@ -1,12 +1,21 @@
 package project.shapes;
 
 public abstract class Shape implements Comparable<Shape> {
-	private static Shape[] shapeList = new Shape[99999999];
+	private static Shape[] shapeList = new Shape[0];
 	protected double height;
 	
 	public Shape(double height) {
 		this.height = height;
 		
+		Shape[] newShapeList = new Shape[shapeList.length + 1];
+		
+		for(int j = 0; j < shapeList.length; j++) {
+			newShapeList[j] = shapeList[j];
+		}
+		
+		newShapeList[newShapeList.length - 1] = this;
+		
+		shapeList = newShapeList;
 	}
 
 	public abstract double GetArea();

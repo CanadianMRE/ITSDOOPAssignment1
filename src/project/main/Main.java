@@ -22,7 +22,8 @@ public class Main {
 			return;
 		}
 		
-		System.out.print(Arrays.toString(Shape.GetShapes()));
+		System.out.println("Done parsing");
+		System.out.print(Shape.GetShapes()[0]);
 		
 		// Start command prompt
 		for(int j = 1; j < args.length; j++) {
