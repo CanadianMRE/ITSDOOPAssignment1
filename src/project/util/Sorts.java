@@ -2,10 +2,39 @@ package project.util;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Random;
 
 import project.shapes.Shape;
 
 public class Sorts {
+	
+	
+	public static boolean IsBozoSorted(Shape[] shapeArray, Comparator<Shape> comparator) {
+		for (int i = 1; i < shapeArray.length; i++) {
+			if (comparator.compare(shapeArray[i], shapeArray[i - 1]) < 0) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	public static Shape[] BozoSort(Shape[] shapeArray, Comparator<Shape> comparator) {
+		Random random = new Random();
+		int salt = shapeArray.length;
+		
+		while (!IsBozoSorted(shapeArray, comparator)) {
+			int swap1 = random.nextInt(salt);
+			int swap2 = random.nextInt(salt);
+			
+			Shape carry = shapeArray[swap1];
+			
+			shapeArray[swap1] = shapeArray[swap2];
+			shapeArray[swap2] = carry;
+		}
+		
+		return shapeArray;
+	}
 	
 	public static Shape[] BubbleSort(Shape[] shapeArray, Comparator<Shape> comparator) {
 	    for (int i = 0; i < shapeArray.length - 1; i++) {

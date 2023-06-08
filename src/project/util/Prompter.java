@@ -60,6 +60,7 @@ public class Prompter {
                 char sortType = action.charAt(1);
 
                 shapes = Shape.GetShapes();
+                
                 if (shapes.length > 0) {
 
                     System.out.println("Shapes sorted using " + sortType + " sort:");
@@ -80,6 +81,9 @@ public class Prompter {
                             break;
                         case 'q':
                         	Prompter.printSortedValues(Sorts.QuickSort(shapes, new AreaCompare()));
+                            break;
+                        case 'z':
+                        	Prompter.printSortedValues(Sorts.BozoSort(shapes, new AreaCompare()));
                             break;
                         default:
                             System.out.println("Invalid sort type: " + sortType);
