@@ -25,10 +25,7 @@ public class Main {
 		System.out.println("Done parsing\n");
 		
 		// Start command prompt
-		for(int j = 1; j < args.length; j++) {
-			Prompter.HandleArgument(args[j]);
-		}
-		
+		Prompter.HandleArgument(args);
 	}
 
 }

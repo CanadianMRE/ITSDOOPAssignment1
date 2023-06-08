@@ -12,8 +12,10 @@ import project.shapes.*;
 
 
 public class Prompter {
-    public static void HandleArgument(String action) {
+    public static void HandleArgument(String[] args) {
         // Remove leading hyphens and convert to lowercase
+    	String action = args[1];
+    	
         action = action.replaceAll("-", "").toLowerCase();
 
         switch (action.charAt(0)) {
