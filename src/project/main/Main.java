@@ -10,7 +10,7 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.print(Arrays.toString(args));
 		// Import all shapes from file
-		if (args.length < 1) {
+		if (args.length < 1) { 
 			return;
 		}
 		
