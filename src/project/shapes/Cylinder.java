@@ -9,13 +9,13 @@ public class Cylinder extends Shape {
 	}
 
 	@Override
-	public double GetArea() {
+	public double getArea() {
 		return Math.PI * Math.pow(this.radius, 2);
 	}
 
 	@Override
-	public double GetVolume() {
-		return GetArea() * this.height;
+	public double getVolume() {
+		return getArea() * this.height;
 	}
 	
 }

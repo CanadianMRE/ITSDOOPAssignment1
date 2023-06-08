@@ -9,12 +9,12 @@ public class Cone extends Shape {
     }
     
     @Override
-    public double GetArea() {
+    public double getArea() {
         return Math.PI*Math.pow(this.radius,2);
     }
     
     @Override
-    public double GetVolume() {
-        return (1/3)*GetArea()*this.height;
+    public double getVolume() {
+        return (1/3)*getArea()*this.height;
     }
 }

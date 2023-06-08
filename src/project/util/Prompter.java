@@ -46,7 +46,7 @@ public class Prompter {
                         return;
                 }
 
-                Shape[] shapes = Shape.GetShapes();
+                Shape[] shapes = Shape.getShapes();
                 if (shapes.length > 0) {
                     Arrays.sort(shapes, comparator);
                     System.out.println("Shapes sorted by " + compareType + ":");
@@ -61,7 +61,7 @@ public class Prompter {
             case 's':
                 char sortType = action.charAt(1);
 
-                shapes = Shape.GetShapes();
+                shapes = Shape.getShapes();
                 
                 if (shapes.length > 0) {
 
@@ -110,12 +110,12 @@ public class Prompter {
     public static void printSortedValues(Shape[] sortedArray) {
     	DecimalFormat numberFormat = new DecimalFormat("#.0#");
     	
-        System.out.println("First Sorted Value: " + numberFormat.format(sortedArray[0].GetArea()));
+        System.out.println("First Sorted Value: " + numberFormat.format(sortedArray[0].getArea()));
 
         int interval = 1000;
         for (int i = interval; i < sortedArray.length; i += interval) {
-            System.out.println("Value at index " + i + ": " + numberFormat.format(sortedArray[i].GetArea()));
+            System.out.println("Value at index " + i + ": " + numberFormat.format(sortedArray[i].getArea()));
         }
-        System.out.println("Last Sorted Value: " + numberFormat.format(sortedArray[sortedArray.length - 1].GetArea()));
+        System.out.println("Last Sorted Value: " + numberFormat.format(sortedArray[sortedArray.length - 1].getArea()));
     }
 }

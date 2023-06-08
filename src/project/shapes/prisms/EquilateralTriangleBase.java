@@ -11,14 +11,14 @@ public class EquilateralTriangleBase extends Prism {
     }
 
     @Override
-    public double GetArea() {
+    public double getArea() {
         double baseArea = Math.pow(length,2) * Math.sqrt(3)/4;
         return baseArea;
     }
 
     @Override
-    public double GetVolume() {
-        return GetArea() * this.height;
+    public double getVolume() {
+        return getArea() * this.height;
     }
 
 }

@@ -9,14 +9,14 @@ public class PentagonBase  extends Prism {
     }
 
     @Override
-    public double GetArea() {
+    public double getArea() {
         double sideLength = this.length;
         return 5 * Math.pow(sideLength, 2) * Math.tan(Math.toRadians(54)) / 4;
     }
 
     @Override
-    public double GetVolume() {
-        return GetArea() * this.height;
+    public double getVolume() {
+        return getArea() * this.height;
     }
 
 }

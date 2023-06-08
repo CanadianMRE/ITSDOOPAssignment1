@@ -18,9 +18,9 @@ public abstract class Shape implements Comparable<Shape> {
 		shapeList = newShapeList;
 	}
 
-	public abstract double GetArea();
+	public abstract double getArea();
 	
-	public abstract double GetVolume();
+	public abstract double getVolume();
 	
 	public int compareTo(Shape o) {
 		if(this.height==o.height)  
@@ -31,7 +31,7 @@ public abstract class Shape implements Comparable<Shape> {
 			return 1;  
 	}
 	
-	public static Shape[] GetShapes() {
+	public static Shape[] getShapes() {
 		return shapeList;
 	}
 }

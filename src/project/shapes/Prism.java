@@ -8,7 +8,7 @@ public abstract class Prism extends Shape{
             this.length = length;
         }
 
-        public abstract double GetArea();
-        public abstract double GetVolume();
+        public abstract double getArea();
+        public abstract double getVolume();
 
 }

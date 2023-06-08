@@ -8,14 +8,14 @@ public class OctagonBase extends Prism {
     }
 
     @Override
-    public double GetArea() {
+    public double getArea() {
         double sideLength = this.length;
         return 2 * (1 + Math.sqrt(2)) * sideLength * sideLength;
     }
 
     @Override
-    public double GetVolume() {
-        return GetArea() * this.height;
+    public double getVolume() {
+        return getArea() * this.height;
     }
 
 }
