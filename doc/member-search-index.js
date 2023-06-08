@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"project.shapes","c":"AreaCompare","l":"AreaCompare()","url":"%3Cinit%3E()"},{"p":"project.shapes","c":"AreaCompare","l":"compare(Shape, Shape)","url":"compare(project.shapes.Shape,project.shapes.Shape)"}]
