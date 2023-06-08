@@ -26,7 +26,7 @@ public class Main {
 		System.out.print(Shape.GetShapes()[0]);
 		
 		// Start command prompt
-		for(int j = 1; j < args.length; j++) {
+		for(int j = 0; j < args.length; j++) {
 			Prompter.HandleArgument(args[j]);
 		}
 		

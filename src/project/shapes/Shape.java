@@ -26,9 +26,9 @@ public abstract class Shape implements Comparable<Shape> {
 		if(this.height==o.height)  
 			return 0;  
 		else if(this.height>o.height)  
-			return 1;  
-		else  
 			return -1;  
+		else  
+			return 1;  
 	}
 	
 	public static Shape[] GetShapes() {

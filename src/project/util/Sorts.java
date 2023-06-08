@@ -1,5 +1,6 @@
 package project.util;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 import project.shapes.Shape;
@@ -7,7 +8,7 @@ import project.shapes.Shape;
 public class Sorts {
 	
 	public static Shape[] BubbleSort(Shape[] shapeArray, Comparator<Shape> comparator) {
-		for (int i = 0; i < shapeArray.length - 1; i++) {
+	    for (int i = 0; i < shapeArray.length - 1; i++) {
             for (int j = 0; j < shapeArray.length - i - 1; j++) {
                 if (comparator.compare(shapeArray[j], shapeArray[j + 1]) > 0) {
                     Shape temp = shapeArray[j];
@@ -16,7 +17,6 @@ public class Sorts {
                 }
             }
         }
-		
 		return shapeArray;
 	}
 
@@ -32,7 +32,6 @@ public class Sorts {
 	            shapeArray[minIndex] = shapeArray[i];
 	            shapeArray[i] = temp;
 	        }
-		 
 		 return shapeArray;
 	}
 
@@ -46,47 +45,113 @@ public class Sorts {
             }
             shapeArray[j + 1] = key;
         }
-		
 		return shapeArray;
 	}
 
 	public static Shape[] MergeSort(Shape[] shapeArray, Comparator<Shape> comparator) {
-		return shapeArray;
-	}
+		
+        mergeSortHelper(shapeArray, 0, shapeArray.length - 1, comparator);
+	    
+        return shapeArray;
+    }
 
+    private static void mergeSortHelper(Shape[] shapeArray, int left, int right, Comparator<Shape> comparator) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+            mergeSortHelper(shapeArray, left, mid, comparator);
+            mergeSortHelper(shapeArray, mid + 1, right, comparator);
+            merge(shapeArray, left, mid, right, comparator);
+        }
+    }
+
+    private static void merge(Shape[] shapeArray, int left, int mid, int right, Comparator<Shape> comparator) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+
+        Shape[] leftArray = new Shape[n1];
+        Shape[] rightArray = new Shape[n2];
+
+        for (int i = 0; i < n1; ++i) {
+            leftArray[i] = shapeArray[left + i];
+        }
+
+        for (int j = 0; j < n2; ++j) {
+            rightArray[j] = shapeArray[mid + 1 + j];
+        }
+
+        int i = 0, j = 0;
+        int k = left;
+
+        while (i < n1 && j < n2) {
+            if (comparator.compare(leftArray[i], rightArray[j]) <= 0) {
+                shapeArray[k] = leftArray[i];
+                i++;
+            } else {
+                shapeArray[k] = rightArray[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < n1) {
+            shapeArray[k] = leftArray[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            shapeArray[k] = rightArray[j];
+            j++;
+            k++;
+        }
+    }
+    
 	public static Shape[] QuickSort(Shape[] shapeArray, Comparator<Shape> comparator) {
+
+		Shape[] sorted = QuickSortR(shapeArray, comparator);
+	    
+	    return sorted;
+	}
+	
+	private static Shape[] QuickSortR(Shape[] shapeArray, Comparator<Shape> comparator) {
 		if (shapeArray.length <= 1) {
-			return shapeArray;
+		    return shapeArray;
 		} else {
-			Shape pivot = shapeArray[0];
-			Shape[] left = {};
-			Shape[] right = {};
-			Shape[] pivots = {};
+		    Shape pivot = shapeArray[0];
+		    Shape[] left = new Shape[0];
+		    Shape[] right = new Shape[0];
+		    Shape[] pivots = new Shape[0];
 
-			for(int j = 0; j < shapeArray.length; j++) {
-				int compareNum = comparator.compare(shapeArray[j], pivot);
-				
-				if (compareNum > 0) {
-					right[right.length] = shapeArray[j];
-				} else if (compareNum < 0) {
-					left[left.length] = shapeArray[j];
-				} else {
-					pivots[pivots.length] = shapeArray[j];
-				}
-			}
-			
-			left = QuickSort(left, comparator);
-			right = QuickSort(right, comparator);
+		    for (int j = 0; j < shapeArray.length; j++) {
+		        int compareNum = comparator.compare(shapeArray[j], pivot);
 
-			for(int j = 0; j < pivots.length; j++) {
-				left[left.length] = pivots[j];
-			}
-			
-			for(int j = 0; j < right.length; j++) {
-				left[left.length] = right[j];
-			}
-			
-			return left;
+		        if (compareNum > 0) {
+		            right = Arrays.copyOf(right, right.length + 1);
+		            right[right.length - 1] = shapeArray[j];
+		        } else if (compareNum < 0) {
+		            left = Arrays.copyOf(left, left.length + 1);
+		            left[left.length - 1] = shapeArray[j];
+		        } else {
+		            pivots = Arrays.copyOf(pivots, pivots.length + 1);
+		            pivots[pivots.length - 1] = shapeArray[j];
+		        }
+		    }
+
+		    left = QuickSortR(left, comparator);
+		    right = QuickSortR(right, comparator);
+
+		    for (int j = 0; j < pivots.length; j++) {
+		        left = Arrays.copyOf(left, left.length + 1);
+		        left[left.length - 1] = pivots[j];
+		    }
+
+		    for (int j = 0; j < right.length; j++) {
+		        left = Arrays.copyOf(left, left.length + 1);
+		        left[left.length - 1] = right[j];
+		    }
+		    
+		    return left;
 		}
+
 	}
 }

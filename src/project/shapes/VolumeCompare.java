@@ -8,11 +8,11 @@ public class VolumeCompare implements Comparator<Shape> {
 	public int compare(Shape o1, Shape o2) {
 		if( o1.GetVolume() > o2.GetVolume() )
 		{
-			return 1;
+			return -1;
 		}
 		else if( o1.GetVolume() < o2.GetVolume() )
 		{
-			return -1;
+			return 1;
 		}
 		else
 		{
