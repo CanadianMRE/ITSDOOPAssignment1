@@ -22,6 +22,10 @@ public abstract class Shape implements Comparable<Shape> {
 	
 	public abstract double getVolume();
 	
+	public double getHeight() {
+		return this.height;
+	}
+	
 	public int compareTo(Shape o) {
 		if(this.height==o.height)  
 			return 0;  

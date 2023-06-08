@@ -7,7 +7,6 @@ public class EquilateralTriangleBase extends Prism {
 
     public EquilateralTriangleBase(double height, double length) {
         super(height, length);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
